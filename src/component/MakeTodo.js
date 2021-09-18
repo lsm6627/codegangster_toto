@@ -19,7 +19,6 @@ const MakeTodo = () => {
     //     </button>
     //     )
     // }
-  
 
 const addTodoClick = (event) => {
     console.log("확인")
@@ -40,29 +39,26 @@ const handleChangeMsg = (event) => {
 }
 
     return (
-        <div>
-        <DatePicker
-        className="MakeTodo_datepicker"
-        selected = {startDate}
-        onChange = {(date) => setStartDate(date)}
-        // customInput = {<ExampleCustomInput />}
-        >
-        </DatePicker>
+        <div className="Container">
+            <DatePicker
+                className="MakeTodo_datepicker"
+                selected = {startDate}
+                onChange = {(date) => setStartDate(date)}
+                // customInput = {<ExampleCustomInput />}
+            />
 
-        <input
-        className="MakeTodo_input"
-        type="text"
-        value={message}
-        onChange={handleChangeMsg}
-        placeholder="일정을 입력하세요">
+            <div className="MakeTodo_input">
+                <input
+                    type="text"
+                    value={message}
+                    onChange={handleChangeMsg}
+                    placeholder="일정을 입력하세요" 
+                />
+            </div>
 
-        </input>
-
-        <button 
-        className="MakeTodo_submit"
-        onclick={addTodoClick}>할일 추가
-        </button>
-
+            <div className="MakeTodo_submit">
+                <i class="fas fa-plus" onclick={addTodoClick}></i>
+            </div>
         </div>
     )
 }

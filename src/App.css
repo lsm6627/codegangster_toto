@@ -1,9 +1,37 @@
 * {
   box-sizing: border-box;
+  font-family: "BMHANNAPro";
+  font-size: 20px;
   margin: 0;
   padding: 0;
 }
 
 :root {
-  --default-text-color: rgb(0, 0, 0);
+  --default-text-color: rgb(255, 255, 255);
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+}
+
+main {
+  background-color: rgb(255, 255, 255);
+  padding: 25px;
+  border-radius: 40px;
+}
+
+body {
+  margin: 50px;
+  border: solid white 5px;
+  border-radius: 45px;
+  display: flex;
+  justify-content: left;
+  min-height: 100vh;
+  padding: 20px;
+  box-shadow: gray 2px 2px 2px;
+}
+
+button,
+input {
+  font-size: 100%;
+  padding: 10px;
+  box-shadow: gray 2px 2px 2px;
+  margin: 5px;
 }
