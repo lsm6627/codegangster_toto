@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Filterbar = () => {
+const Header = () => {
     return (
         <div />
     )
 }
 
-export default Filterbar;
+export default Header;
