@@ -22,6 +22,7 @@
 }
 
 .todoContent {
+  list-style: none;
 }
 
 .todoContent_checkbox {
