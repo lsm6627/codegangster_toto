@@ -1,0 +1,12 @@
+.fas {
+  font-size: 4rem;
+  color: var(--default-text-color);
+  padding: 1.3rem;
+}
+
+.header--wrapper {
+  background-color: antiquewhite;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
