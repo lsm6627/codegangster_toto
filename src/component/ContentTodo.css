@@ -1,0 +1,39 @@
+.todoLists {
+  flex: 1 0 80vh;
+  border: 2px solid var(--tweets-component-color);
+  overflow-y: scroll;
+}
+
+.todoList {
+  display: flex;
+  list-style: none;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--main-border-color);
+}
+.todoList:hover {
+  background-color: var(--shade-color);
+}
+
+.todoDate {
+  display: inline-block;
+  color: var(--bold-text-color);
+  font-weight: 700;
+  margin-left: 0.5rem;
+}
+
+.todoContent_checkbox {
+}
+
+.todoContent_delete {
+}
+
+.todoContent_deleteButton {
+}
+
+.todoContent_deleteButton > button > .far {
+  color: var(--button-text-color);
+  background-color: var(--button-color);
+  font-size: 0.8rem;
+  padding: 0.1rem;
+  border-radius: 50px;
+}
