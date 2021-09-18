@@ -2,7 +2,11 @@ import React from 'react';
 import {useState} from 'react';
 import './MakeTodo.css';
 import dummyTodos from '../static/dummyData';
-import DatePicker from "react-datepicker";
+
+import DatePicker, {registerLocale, rergisterLocale,setDefaultLocale} from "react-datepicker"
+import ko from 'date-fns/locale/ko'
+registerLocale('ko', ko)
+
 
 
 
@@ -11,17 +15,12 @@ const MakeTodo = () => {
     const[message, setMessage] = useState("")
     const[todoList, settodoList] = useState([...dummyTodos]);
     
-    // const DatePickerComponent = () => {
-    const [startDate, setStartDate] = useState(new Date());
-    // const ExampleCustomInput = ({value, onClick}) => (
-    //     <button className="example-custom-input" onClick={onClick}>
-    //         {value}
-    //     </button>
-    //     )
-    // }
+  
+  const [startDate, setStartDate] = useState(new Date());
 
 const addTodoClick = (event) => {
     console.log("확인")
+  
     const todo = {};
     todo.id = 6;
     todo.d_day = 10;
@@ -38,27 +37,40 @@ const handleChangeMsg = (event) => {
     setMessage(event.target.value);
 }
 
+const Calendar = () => {
+    const [startDate, setStartDate] = useState(new Date());
+
     return (
-        <div className="Container">
-            <DatePicker
-                className="MakeTodo_datepicker"
-                selected = {startDate}
-                onChange = {(date) => setStartDate(date)}
-                // customInput = {<ExampleCustomInput />}
-            />
+       <DatePicker 
+        className = "MakeTodo_Calendar"
+        selected = {startDate}
+        onChange = {date => setStartDate(date)}
+        locale = {ko}
+        dateFormat="yyyy년 MM월 dd일"
+        minDate = {new Date()}
+        />
+    )
+}
 
-            <div className="MakeTodo_input">
-                <input
-                    type="text"
-                    value={message}
-                    onChange={handleChangeMsg}
-                    placeholder="일정을 입력하세요" 
-                />
-            </div>
+    return (
+        <div>
+        <Calendar />
 
-            <div className="MakeTodo_submit">
-                <i class="fas fa-plus" onclick={addTodoClick}></i>
-            </div>
+        <input
+        className="MakeTodo_input"
+        type = "text"
+        value = {message}
+        onChange = {handleChangeMsg}
+        placeholder = "일정을 입력하세요">
+        </input>
+
+        <button 
+        className = "MakeTodo_submit"
+        onclick = {addTodoClick}>할일 추가
+
+        
+        </button>
+
         </div>
     )
 }
