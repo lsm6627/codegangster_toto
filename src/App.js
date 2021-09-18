@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {BrowserRouter, Switch} from "react-router-dom";
 
 import ContentTodo from './component/ContentTodo';
@@ -11,6 +11,12 @@ import MakeTodo from './component/MakeTodo';
 import './App.css';
 
 function App() {
+  const [isClear, setIsClear] = useState(false);
+
+  const handleClear = () => {
+    setIsClear(true)
+  }
+
   return ( 
       <BrowserRouter>
     <div className='App'>
@@ -19,7 +25,7 @@ function App() {
         <Filterbar/>
         <MakeTodo /> 
         <ContentTodo/>
-        <CountClear/>
+        <CountClear isClear={isClear} handleClear={handleClear}/>
       </main>
       <Footer/>
     </div>
