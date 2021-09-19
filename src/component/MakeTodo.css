@@ -1,17 +1,14 @@
-.MakeTodo_datepicker {
-  flex: 0;
-  width: 7rem;
-  height: 2em;
+.container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  margin: 15px;
+  border-radius: 40px;
+  box-shadow: gray 2px 2px 2px;
+  height: auto;
 }
-
 .MakeTodo_input {
-  flex: 1 0 0;
-  width: 20rem;
-  margin-bottom: 2px;
 }
 
 .MakeTodo_submit {
-  margin: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
 }

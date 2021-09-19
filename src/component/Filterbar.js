@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import dummyData from "../static/dummyData";
 import "./Filterbar.css";
 
-const Filterbar = () => {
-  const [datas, setDatas] = useState(dummyData);
-
+const Filterbar = ({ datas, setDatas }) => {
+  console.log("datas ", datas);
   const handleChange = (e) => {
     if (e.target.value === "D-day순") {
       const cpDatas = datas.slice();
@@ -30,14 +28,9 @@ const Filterbar = () => {
           <option>D-day순</option>
           <option>생성날짜순</option>
         </select>
-        <div>
+        <div className="filterbar__currentDate">
           {today.getFullYear()}년{today.getMonth() + 1}월{today.getDate()}일
         </div>
-      </div>
-      <div>
-        {datas.map((el) => {
-          return <p key={el.id}>{el.content}</p>;
-        })}
       </div>
     </div>
   );
