@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ContentTodo.css'
 import dummy from '../static/dummyData'
-
+import MakeTodo from './MakeTodo';
 
 const ContentTodo = () => {
 
@@ -10,7 +10,12 @@ const ContentTodo = () => {
     //setDatas - todo 제거, 생성
 
     const deleteTodo = (some, deleteId) => {
-        const filterTodo = datas.filter((todo, id) => id !== deleteId - 1)
+        console.log(deleteId)
+        const filterTodo = datas.filter((todo, id) => {
+            console.log(id + 'a');
+
+            return id !== deleteId - 1;
+        })
         setDatas(filterTodo);
 
     };
