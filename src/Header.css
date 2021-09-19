@@ -1,12 +1,22 @@
-.fas {
-  font-size: 4rem;
-  color: var(--default-text-color);
-  padding: 1.3rem;
-}
-
 .header--wrapper {
-  background-color: antiquewhite;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  background-color: white;
+  margin: 15px;
+  border-radius: 40px;
+  box-shadow: gray 2px 2px 2px;
+}
+
+.fa-user-circle {
+  font-size: 3.5rem;
+  margin: 15px;
+}
+
+.span--Username {
+  font-size: 33px;
+  font-weight: bold;
+}
+
+.btn--logout {
+  margin-left: 12rem;
 }
