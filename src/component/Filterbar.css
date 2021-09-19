@@ -1,9 +1,14 @@
 .filterbar__container {
-  margin: 1rem;
-  text-align: center;
+  background-color: white;
+  border-radius: 45px;
+  box-shadow: gray 2px 2px 2px;
 }
 .filterbar__wrapper {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  padding: 25px;
+}
+
+.tempList {
+  display: inline-block;
 }

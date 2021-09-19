@@ -53,16 +53,15 @@ const Calendar = () => {
 }
 
     return (
-        <div>
-        <Calendar />
-
-        <input
-        className="MakeTodo_input"
-        type = "text"
-        value = {message}
-        onChange = {handleChangeMsg}
-        placeholder = "일정을 입력하세요">
-        </input>
+        <div className="container">
+            <Calendar />
+            <input
+                className="MakeTodo_input"
+                type = "text"
+                value = {message}
+                onChange = {handleChangeMsg}
+                placeholder = "일정을 입력하세요">
+            </input>
 
         <button 
         className = "MakeTodo_submit"

@@ -5,11 +5,12 @@
   margin: 15px;
   border-radius: 40px;
   box-shadow: gray 2px 2px 2px;
+  height: auto;
 }
 
 .fa-user-circle {
-  font-size: 3.5rem;
-  margin: 15px;
+  margin: 10px;
+  font-size: 3rem;
 }
 
 .span--Username {
@@ -18,5 +19,6 @@
 }
 
 .btn--logout {
-  margin-left: 12rem;
+  margin-left: auto;
+  margin-right: 30px;
 }
