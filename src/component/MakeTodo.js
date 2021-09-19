@@ -2,7 +2,7 @@ import React from 'react';
 import {useState} from 'react';
 import './MakeTodo.css';
 import dummyTodos from '../static/dummyData';
-// import shortid from 'shortid';
+import shortid from 'shortid';
 import DatePicker, {registerLocale, setDefaultLocale} from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import ko from 'date-fns/locale/ko'
@@ -25,7 +25,7 @@ const result = Math.ceil(gap / (1000 * 60 * 60 * 24));
 
 const addTodoClick = (event) => {
     const todo = {
-        id : 6,
+        id : shortid(),
         d_day : result,
         content : message,
         check : false,
