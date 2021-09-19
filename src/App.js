@@ -20,12 +20,14 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
         <main>
+          <Header />
           <Filterbar />
           <MakeTodo />
-          <ContentTodo />
           <CountClear isClear={isClear} handleClear={handleClear} />
+          <list>
+            <ContentTodo />
+          </list>
         </main>
         <Footer />
       </div>

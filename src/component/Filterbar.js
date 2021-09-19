@@ -30,15 +30,15 @@ const Filterbar = () => {
           <option>D-day순</option>
           <option>생성날짜순</option>
         </select>
-        <div>
+        <div className="filterbar__currentDate">
           {today.getFullYear()}년{today.getMonth() + 1}월{today.getDate()}일
         </div>
       </div>
-      <div>
+      <p>
         {datas.map((el) => {
-          return <p key={el.id}>{el.content}</p>;
+          return <div className="tempList" key={el.id}>{el.content}</div>;
         })}
-      </div>
+      </p>
     </div>
   );
 };
