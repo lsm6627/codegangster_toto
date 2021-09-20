@@ -2,75 +2,74 @@ import React from 'react';
 import { useState } from 'react';
 import './MakeTodo.css';
 import dummyTodos from '../static/dummyData';
-
-import DatePicker, { registerLocale, rergisterLocale, setDefaultLocale } from "react-datepicker"
+import shortid from 'shortid';
+import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css";
 import ko from 'date-fns/locale/ko'
 registerLocale('ko', ko)
 
 
 
-
 const MakeTodo = () => {
-    const [date, setDate] = useState("")
+
     const [message, setMessage] = useState("")
-    const [todoList, settodoList] = useState([...dummyTodos]);
-
-
+    const [todoList, setTodoList] = useState([...dummyTodos]);
     const [startDate, setStartDate] = useState(new Date());
 
-    const addTodoClick = (event) => {
-        console.log("확인")
 
+    const today = new Date();
+    const dday = startDate;
+    const gap = dday - today.getTime();
+    const result = Math.ceil(gap / (1000 * 60 * 60 * 24));
+
+
+    const addTodoClick = (event) => {
         const todo = {
-            id: dummyTodos.length + 1,
-            d_day: 10,
+            id: shortid(),
+            d_day: result,
             content: message,
             check: false,
-            createdAt: '2019-02-25T16:17:27.000Z',
-            updatedAt: '2019-02-25T16:17:27.000Z',
+            createdAt: new Date().toLocaleDateString('ko-KR'),
+            updatedAt: new Date().toLocaleDateString('ko-KR')
         }
-        settodoList([...todoList, todo]);
+
+        setTodoList([...todoList, todo]);
         setMessage("");
+        console.log(todoList)
     }
+
 
     const handleChangeMsg = (event) => {
         setMessage(event.target.value);
     }
 
-    const Calendar = () => {
-        const [startDate, setStartDate] = useState(new Date());
-
-        return (
-            <DatePicker
-                className="MakeTodo_Calendar"
-                selected={startDate}
-                onChange={date => setStartDate(date)}
-                locale={ko}
-                dateFormat="yyyy년 MM월 dd일"
-                minDate={new Date()}
-            />
-        )
-    }
-
     return (
         <div>
-            <Calendar />
+            <div className="MakeTodo_input">
 
-            <input
-                className="MakeTodo_input"
-                type="text"
-                value={message}
-                onChange={handleChangeMsg}
-                placeholder="일정을 입력하세요">
-            </input>
-
-            <button
-                className="MakeTodo_submit"
-                onclick={addTodoClick}>할일 추가
+                <DatePicker className="MakeTodo_input__calendar"
+                    selected={startDate}
+                    onChange={date => setStartDate(date)}
+                    locale={ko}
+                    dateFormat="yyyy년 MM월 dd일"
+                    minDate={new Date()}>
+                </DatePicker>
 
 
-            </button>
+                <div className="MakeTodo_input--message">
+                    <input type="text"
+                        value={message}
+                        onChange={handleChangeMsg}
+                        placeholder="일정을 입력하세요">
+                    </input>
+                </div>
 
+
+                <button className="MakeTodo_input--submit" onClick={addTodoClick}>
+                    <i className="fas fa-plus"></i>
+                </button>
+
+            </div>
         </div>
     )
 }

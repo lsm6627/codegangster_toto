@@ -1,6 +1,8 @@
+import shortid from 'shortid';
+
 const dummyData = [
   {
-    id: 1,
+    id: shortid(),
     d_day: 0,
     content: "숨 쉬기",
     check: false,
@@ -8,7 +10,7 @@ const dummyData = [
     updatedAt: "2019-02-25T16:17:27.000Z",
   },
   {
-    id: 2,
+    id: shortid(),
     d_day: 2,
     content: "침착맨 방송 보기",
     check: false,
@@ -16,7 +18,7 @@ const dummyData = [
     updatedAt: "2019-02-25T16:17:47.000Z",
   },
   {
-    id: 3,
+    id: shortid(),
     d_day: 11,
     content: "에러 안 뜨게 해달라고 기도하기",
     check: false,
@@ -24,7 +26,7 @@ const dummyData = [
     updatedAt: "2019-02-26T16:18:10.000Z",
   },
   {
-    id: 4,
+    id: shortid(),
     d_day: 365,
     content: "소환사 협곡 달리기",
     check: false,
@@ -32,7 +34,7 @@ const dummyData = [
     updatedAt: "2019-02-27T16:18:40.000Z",
   },
   {
-    id: 5,
+    id: shortid(),
     d_day: 2,
     content: "코드스테이츠의 불친절함 뒷담하기",
     check: false,

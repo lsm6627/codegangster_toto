@@ -11,10 +11,13 @@ const ContentTodo = () => {
 
     const deleteTodo = (some, deleteId) => {
         console.log(deleteId)
+        if (!dummy) {
+            alert('todo list가 비어있습니다.')
+            return
+        }
         const filterTodo = datas.filter((todo, id) => {
-            console.log(id + 'a');
-
-            return id !== deleteId - 1;
+            console.log(id)
+            return id !== deleteId
         })
         setDatas(filterTodo);
 
@@ -30,7 +33,7 @@ const ContentTodo = () => {
                         <div className="todoDate">{/*D-day표시*/}</div>
                         <div className="todoContent">{/*todo내용표시*/}
 
-                            {todo.content}
+                            {todo ? todo.content : "내용이 없습니다."}
 
                             <span className="todoContent_checkbox">
                                 {/*체크박스영역*/}
