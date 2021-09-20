@@ -1,11 +1,11 @@
 require("dotenv").config();
 const express = require('express');
 // const fs = require("fs");
-const https = require("https");
 const cors = require('cors');
 const controller = require('./controllers');
 
 const app = express();
+const port = 4000;
 
 // app.use(
 //   morgan(':method :url :status :res[content-length] - :response-time ms')
@@ -18,14 +18,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 
-app.get('/items', controller.get);
+app.get('/', controller.get);
 
 app.post('/items', controller.post);
 
-const HTTPS_PORT = process.env.HTTPS_PORT || 4000;
 
-let server = https.createServer(credentials, app);
-server.listen(HTTPS_PORT, () => console.log("server running"));
+let server = app.listen(port, () => {
+  console.log(`server running on ${port}`);
+})
 
 
 module.exports = server;
