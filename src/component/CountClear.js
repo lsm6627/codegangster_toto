@@ -6,8 +6,8 @@ const CountClear = ({ isClear, handleClear }) => {
 
   return (
     <div className="count_Container">
-      {isClear ? <span className="span--remainTodos">비어있어요!</span>
-        :<span className="span--remainTodos">남은 할 일: {dummyData.length}</span>}
+      {!datas ? <span className="span--remainTodos">비어있어요!</span>
+        :<span className="span--remainTodos">남은 할 일: {datas.length}</span>}
       <button onClick={handleClear} className="btn--clearAll">Clear All</button>
     </div>
 
