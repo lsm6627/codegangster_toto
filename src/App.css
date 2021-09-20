@@ -7,21 +7,22 @@
 }
 
 :root {
-  --default-text-color: rgb(255, 255, 255);
   background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
-}
-
-.app {
-  display: flex;
+  --default-text-color: rgb(255, 255, 255);
 }
 
 main {
+  display: inline-block;
   max-width: 800px;
   min-width: 500px;
   padding: 25px;
   border-radius: 40px;
 }
 
-list {
-  align-content: flex-start;
+content {
+  display: inline-block;
+  max-width: 800px;
+  min-width: 500px;
+  border-radius: 40px;
+  padding: 25px;
 }
