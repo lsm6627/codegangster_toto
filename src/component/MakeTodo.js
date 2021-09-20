@@ -1,16 +1,17 @@
 import React from "react";
 import { useState } from "react";
 import "./MakeTodo.css";
-import dummyTodos from "../static/dummyData";
+// import ContentTodo from "./ContentTodo";
+// import dummyTodos from "../static/dummyData";
 import shortid from "shortid";
 import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ko from "date-fns/locale/ko";
+
 registerLocale("ko", ko);
 
-const MakeTodo = () => {
+const MakeTodo = ({ datas, setDatas }) => {
   const [message, setMessage] = useState("");
-  const [todoList, setTodoList] = useState([...dummyTodos]);
   const [startDate, setStartDate] = useState(new Date());
 
   const today = new Date();
@@ -28,9 +29,8 @@ const MakeTodo = () => {
       updatedAt: new Date().toLocaleDateString("ko-KR"),
     };
 
-    setTodoList([...todoList, todo]);
+    setDatas([...datas, todo]);
     setMessage("");
-    console.log(todoList);
   };
 
   const handleChangeMsg = (event) => {
@@ -51,18 +51,20 @@ const MakeTodo = () => {
           dateFormat="yyyy년 MM월 dd일"
           minDate={new Date()}
         ></DatePicker>
+
+        <div className="MakeTodo_input--message">
+          <input
+            className="input_message"
+            type="text"
+            value={message}
+            onChange={handleChangeMsg}
+            placeholder="일정을 입력하세요"
+          ></input>
+        </div>
+
         <button className="MakeTodo_input--submit" onClick={addTodoClick}>
           ADD
         </button>
-      </div>
-      <div className="MakeTodo_input--message">
-        <input
-          className="input_message"
-          type="text"
-          value={message}
-          onChange={handleChangeMsg}
-          placeholder="일정을 입력하세요"
-        ></input>
       </div>
     </div>
   );

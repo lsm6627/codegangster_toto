@@ -52,3 +52,7 @@
   width: 100%;
   transition: ease all;
 }
+
+.btn--logout:active {
+  box-shadow: none;
+}
