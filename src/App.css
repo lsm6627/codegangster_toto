@@ -19,10 +19,10 @@ main {
   border-radius: 40px;
 }
 
-content {
+.rightPart {
   display: inline-block;
   max-width: 800px;
   min-width: 500px;
-  border-radius: 40px;
   padding: 25px;
+  border-radius: 40px;
 }
