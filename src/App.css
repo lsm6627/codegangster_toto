@@ -7,12 +7,8 @@
 }
 
 :root {
-  --default-text-color: rgb(255, 255, 255);
   background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
-}
-
-.app {
-  display: flex;
+  --default-text-color: rgb(255, 255, 255);
 }
 
 main {
@@ -23,5 +19,5 @@ main {
 }
 
 list {
-  align-content: flex-start;
+  display: inline;
 }
