@@ -19,7 +19,7 @@ const ContentTodo = ({ datas, setDatas }) => {
     };
 
     return (
-        <div>
+        <div className="todo_Container">
             <ul className="todoLists">
                 {datas.map((todo) => {
                     return (
