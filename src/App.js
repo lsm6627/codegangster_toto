@@ -7,11 +7,13 @@ import Filterbar from "./component/Filterbar";
 import Footer from "./Footer";
 import Header from "./Header";
 import MakeTodo from "./component/MakeTodo";
+import dummy from "./static/dummyData";
 
 import "./App.css";
 
 function App() {
   const [isClear, setIsClear] = useState(false);
+  const [datas, setDatas] = useState(dummy);
 
   const handleClear = () => {
     setIsClear(true);
@@ -22,7 +24,7 @@ function App() {
       <div className="App">
         <main>
           <Header />
-          <Filterbar />
+          <Filterbar datas={datas} setDatas={setDatas} />
           <MakeTodo />
           <CountClear isClear={isClear} handleClear={handleClear} />
           <list>
