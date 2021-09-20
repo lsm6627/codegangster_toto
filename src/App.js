@@ -26,11 +26,11 @@ function App() {
         <main>
           <Header />
           <Filterbar datas={datas} setDatas={setDatas} />
-          <MakeTodo datas={datas} setDatas={setDatas}/>
+          <MakeTodo datas={datas} setDatas={setDatas} />
           <CountClear datas={datas} setDatas={setDatas} isClear={isClear} handleClear={handleClear} />
         </main>
           <div className="rightPart">
-            <ContentTodo datas={datas} setDatas={setDatas}/>
+            <ContentTodo datas={datas} setDatas={setDatas} />
           </div>
         <Footer />
       </div>
