@@ -18,7 +18,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 
-app.get('/items', controller);
+app.get('/items', controller.get);
+
+app.post('/items', controller.post);
 
 const HTTPS_PORT = process.env.HTTPS_PORT || 4000;
 
