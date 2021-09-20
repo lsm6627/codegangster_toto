@@ -12,12 +12,17 @@
 }
 
 main {
+  display: inline-block;
   max-width: 800px;
   min-width: 500px;
   padding: 25px;
   border-radius: 40px;
 }
 
-list {
-  display: inline;
+content {
+  display: inline-block;
+  max-width: 800px;
+  min-width: 500px;
+  border-radius: 40px;
+  padding: 25px;
 }

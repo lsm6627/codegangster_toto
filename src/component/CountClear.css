@@ -46,6 +46,10 @@
   transition: ease all;
 }
 
+.btn--clearAll:active {
+  box-shadow: none;
+}
+
 .span--remainTodos {
   margin: 15px;
   margin-left: 30px;

@@ -72,7 +72,6 @@
 }
 
 .MakeTodo_input--submit:hover {
-  background: bdb2ff;
   color: #bdb2ff;
   box-shadow: gray 6px 6px 6px;
 }
@@ -94,8 +93,6 @@
 
 .MakeTodo_input--submit:active {
   box-shadow: none;
-  margin-left: 2px;
-  margin-top: 2px;
 }
 
 .input_message {

@@ -28,7 +28,9 @@ function App() {
           <MakeTodo />
           <CountClear isClear={isClear} handleClear={handleClear} />
         </main>
-        <ContentTodo className="list"/>
+        <content>
+          <ContentTodo />
+        </content>
         <Footer />
       </div>
     </BrowserRouter>
