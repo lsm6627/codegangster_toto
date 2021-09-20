@@ -27,10 +27,8 @@ function App() {
           <Filterbar datas={datas} setDatas={setDatas} />
           <MakeTodo />
           <CountClear isClear={isClear} handleClear={handleClear} />
-          <list>
-            <ContentTodo />
-          </list>
         </main>
+        <ContentTodo />
         <Footer />
       </div>
     </BrowserRouter>
