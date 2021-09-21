@@ -12,11 +12,86 @@
   padding: 20px;
 }
 
+.todoMenu {
+  display: flex;
+}
+
+.buttons {
+  display: flex;
+  margin-left: auto;
+}
+
 .todoDate {
+  display: inline;
   font-size: 25px;
   text-shadow: gray 2px 2px 2px;
+  margin: 7px;
+  margin-top: 0;
 }
 
 .todoContent {
-  font-size: 35px;
+  font-size: 30px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+input[type="checkbox"] {
+  margin-left: 15px;
+  appearance: none;
+  -webkit-appearance: none;
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  border: solid;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  transition: 500ms ease all;
+}
+
+input[type="checkbox"]::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f00c";
+  font-weight: 900;
+  font-size: 20px;
+  color: white;
+  display: none;
+}
+
+input[type="checkbox"]:hover {
+  box-shadow: gray 2px 2px 2px;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #5bcd3e;
+}
+
+input[type="checkbox"]:checked::after {
+  display: block;
+}
+
+.todoContent_deleteButton {
+  margin-left: 15px;
+  appearance: none;
+  -webkit-appearance: none;
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  border: solid;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  transition: 500ms ease all;
+}
+
+.todoContent_deleteButton:hover {
+  box-shadow: gray 2px 2px 2px;
+  color: #e63946;
+  border: solid black;
 }
