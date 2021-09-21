@@ -52,9 +52,18 @@ const MakeTodo = ({ datas, setDatas }) => {
           minDate={new Date()}
         ></DatePicker>
         {/* ! 나 이부분 수정함!! 내일 말 하셈!!! 진짜 리얼로!! */}
-        <button className="MakeTodo_input--submit" onClick={addTodoClick}>
-          ADD
-        </button>
+        {message ? (
+          <button className="MakeTodo_input--submit" onClick={addTodoClick}>
+            ADD
+          </button>
+        ) : (
+          <button
+            className="MakeTodo_input--submit"
+            onClick={() => alert("입력된 내용이 없습니다!")}
+          >
+            ADD
+          </button>
+        )}
       </div>
       {/* 여기로 왔다!!!!!!!! */}
       <div className="MakeTodo_input--message">
