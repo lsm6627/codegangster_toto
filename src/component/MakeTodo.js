@@ -42,7 +42,7 @@ const MakeTodo = ({ datas, setDatas }) => {
   return (
     <div className="Container">
       <div className="MakeTodo_input">
-      <i class="fas fa-pencil-alt"></i>
+        <i class="fas fa-pencil-alt"></i>
         <span className="MakeTodo_title">MAKE TODO!</span>
         <i class="fas fa-calendar-day"></i>
         <DatePicker
@@ -66,11 +66,17 @@ const MakeTodo = ({ datas, setDatas }) => {
             ></input>
         </div>
 
+        {message ? 
         <button className="MakeTodo_input--submit" onClick={addTodoClick}>
-          <i className="fas fa-plus"></i>
+          ADD
         </button>
-    </div>
+        : <button className="MakeTodo_input--submit" onClick={() => alert('입력된 내용이 없습니다!')}>
+          ADD
+        </button>
+        }
 
+      </div>
+    
     </div>
   );
 };
