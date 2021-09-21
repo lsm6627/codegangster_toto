@@ -17,7 +17,6 @@ const ContentTodo = ({ datas, setDatas }) => {
         setDatas(filterTodo);
 
     };
-
     return (
         <div>
             <ul className="todoLists">
@@ -29,25 +28,25 @@ const ContentTodo = ({ datas, setDatas }) => {
                             <div className="todoContent">
                                 {todo.content}
 
-                                <span className="todoContent_checkbox">
-                                    {/*체크박스영역*/}
-                                    <input type="checkbox">{/*체크박스*/}</input>
-                                </span>
-                                <span className="todoContent_delete">
-                                    {/*삭제영역*/}
-                                    <button className="todoContent_deleteButton">
-                                        {/*삭제버튼*/}
-                                        <i className="far fa-trash-alt"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </li>
-                    );
-                })}
 
-            </ul>
-        </div>
-    );
+                  <span className="todoContent_checkbox">
+                    {/*체크박스영역*/}
+                    <input type="checkbox">{/*체크박스*/}</input>
+                  </span>
+                  <span className="todoContent_delete">
+                    {/*삭제영역*/}
+                    <button className="todoContent_deleteButton">
+                      {/*삭제버튼*/}
+                      <i className="far fa-trash-alt"></i>
+                    </button>
+                  </span>
+                </div>
+              </li>
+            );
+          })}
+      </ul>
+    </div>
+  );
 };
 
 export default ContentTodo;

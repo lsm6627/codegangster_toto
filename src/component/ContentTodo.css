@@ -1,11 +1,15 @@
-.todoLists {
-  border: 2px solid var(--tweets-component-color);
+.todoContainer {
+  display: inline-block;
 }
 
 .todoList {
-  list-style: none;
-  padding: 0.5rem 1rem;
-  border-bottom: 1px solid var(--main-border-color);
+  display: flex;
+  background-color: white;
+  border-radius: 40px;
+  box-shadow: gray 2px 2px 2px;
+  margin: 50px;
+  width: 50vw;
+  height: 80px;
 }
 
 .todoDate {

@@ -40,9 +40,13 @@ const MakeTodo = ({ datas, setDatas }) => {
 
 
   return (
-    <div>
+    <div className="Container">
       <div className="MakeTodo_input">
+      <i class="fas fa-pencil-alt"></i>
+        <span className="MakeTodo_title">MAKE TODO!</span>
+        <i class="fas fa-calendar-day"></i>
         <DatePicker
+
           className="MakeTodo_input__calendar"
           selected={startDate}
           onChange={(date) => setStartDate(date)}
@@ -53,18 +57,20 @@ const MakeTodo = ({ datas, setDatas }) => {
         </DatePicker>
 
         <div className="MakeTodo_input--message">
-          <input
+          <input 
+            className="input_message"
             type="text"
             value={message}
             onChange={handleChangeMsg}
             placeholder="일정을 입력하세요"
-          ></input>
+            ></input>
         </div>
 
         <button className="MakeTodo_input--submit" onClick={addTodoClick}>
           <i className="fas fa-plus"></i>
         </button>
-      </div>
+    </div>
+
     </div>
   );
 };
