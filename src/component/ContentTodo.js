@@ -9,32 +9,33 @@ const ContentTodo = ({ datas, setDatas }) => {
     });
     setDatas(filterTodo);
   };
-
   return (
-    <div>
+    <div className="todo_Container">
       <ul className="todoLists">
         {datas.map((todo) => {
           return (
             <li className="todoList" key={todo.id}>
               {/* 각 리스트 항목들 */}
-              <div className="todoDate">D - {todo.d_day}</div>
-              <div className="todoContent">
-                {todo.content}
-                <span className="todoContent_checkbox">
-                  {/*체크박스영역*/}
-                  <input type="checkbox">{/*체크박스*/}</input>
-                </span>
-                <span className="todoContent_delete">
-                  {/*삭제영역*/}
-                  <button
-                    className="todoContent_deleteButton"
-                    onClick={() => deleteTodo(todo.content, todo.id)}
-                  >
-                    {/*삭제버튼*/}
-                    <i className="far fa-trash-alt"></i>
-                  </button>
-                </span>
+              <div className="todoMenu">
+                <div className="todoDate">D - {todo.d_day}</div>
+                <div className="buttons">
+                  <span className="todoContent_checkbox">
+                    <div className="checkbox_group">
+                      <input type="checkbox" id="check" />
+                    </div>
+                  </span>
+                  <span className="todoContent_delete">
+                    <button
+                      className="todoContent_deleteButton"
+                      onClick={() => deleteTodo(todo.content, todo.id)}
+                    >
+                      <i className="far fa-trash-alt"></i>
+                    </button>
+                  </span>
+                </div>
               </div>
+
+              <div className="todoContent">{todo.content}</div>
             </li>
           );
         })}

@@ -36,7 +36,6 @@ const MakeTodo = ({ datas, setDatas }) => {
   const handleChangeMsg = (event) => {
     setMessage(event.target.value);
   };
-
   return (
     <div className="Container">
       <div className="MakeTodo_input">
