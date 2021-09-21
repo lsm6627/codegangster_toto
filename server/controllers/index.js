@@ -13,15 +13,18 @@ module.exports ={
     },
 
     post: async(req, res) =>{
-        const todo = req.body.todo;
         // Todo api 
-        const userTodo = req.body.user_todo;
+        const usertodo = todos.findOne({
+            where: {userId: req.body.userId, password: req.body.password},
+        })
         
-        if(!todo) {
-            res.status(404).send("you've got a Wrong");
-        } 
-        else {
-            res.status(200).json('Welcome!');
+        if(!usertodo) {
+            res.status(404).send({message: "you've got a Wrong"});
+        } else {
+            req.session.save(()=>{
+                req.session.user = usertodo.userId;
+                res.json({data: usertodo, message: "good"})
+            })
         }
         // const userTodo = req.body.user_todo;
 
