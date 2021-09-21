@@ -26,7 +26,6 @@ function App() {
         <main>
           <Header />
           <Filterbar datas={datas} setDatas={setDatas} />
-
           <MakeTodo datas={datas} setDatas={setDatas} />
           <CountClear
             datas={datas}
@@ -38,7 +37,6 @@ function App() {
         <div className="rightPart">
           <ContentTodo datas={datas} setDatas={setDatas} />
         </div>
-
         <Footer />
       </div>
     </BrowserRouter>

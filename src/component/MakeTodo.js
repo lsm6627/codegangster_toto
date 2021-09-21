@@ -51,21 +51,22 @@ const MakeTodo = ({ datas, setDatas }) => {
           dateFormat="yyyy년 MM월 dd일"
           minDate={new Date()}
         ></DatePicker>
-
-        <div className="MakeTodo_input--message">
-          <input
-            className="input_message"
-            type="text"
-            value={message}
-            onChange={handleChangeMsg}
-            placeholder="일정을 입력하세요"
-          ></input>
-        </div>
-
+        {/* ! 나 이부분 수정함!! 내일 말 하셈!!! 진짜 리얼로!! */}
         <button className="MakeTodo_input--submit" onClick={addTodoClick}>
           ADD
         </button>
       </div>
+      {/* 여기로 왔다!!!!!!!! */}
+      <div className="MakeTodo_input--message">
+        <input
+          className="input_message"
+          type="text"
+          value={message}
+          onChange={handleChangeMsg}
+          placeholder="일정을 입력하세요"
+        ></input>
+      </div>
+      {/* 여기있던 div */}
     </div>
   );
 };
