@@ -24,6 +24,7 @@
   outline: none;
   box-shadow: gray 2px 2px 2px;
   transition: 500ms ease all;
+  text-align: center;
 }
 
 .option {

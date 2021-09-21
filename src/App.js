@@ -33,10 +33,10 @@ function App() {
             isClear={isClear}
             handleClear={handleClear}
           />
+          <div className="listPart">
+            <ContentTodo datas={datas} setDatas={setDatas} />
+          </div>
         </main>
-        <div className="rightPart">
-          <ContentTodo datas={datas} setDatas={setDatas} />
-        </div>
         <Footer />
       </div>
     </BrowserRouter>
