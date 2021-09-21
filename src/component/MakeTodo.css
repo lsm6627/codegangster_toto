@@ -15,7 +15,6 @@
 
 .MakeTodo_input {
   display: flex;
-  align-items: center;
 }
 
 .MakeTodo_title {
@@ -33,7 +32,7 @@
 .MakeTodo_input__calendar {
   margin-left: auto;
   font-size: 100%;
-  max-width: 152px;
+  max-width: 146px;
   border: dashed 6px #bdb2ff;
   border-top: none;
   border-left: none;
@@ -72,6 +71,7 @@
 }
 
 .MakeTodo_input--submit:hover {
+  background: bdb2ff;
   color: #bdb2ff;
   box-shadow: gray 6px 6px 6px;
 }
