@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Switch } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import ContentTodo from "./component/ContentTodo";
 import CountClear from "./component/CountClear";
