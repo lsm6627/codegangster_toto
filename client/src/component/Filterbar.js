@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import "./Filterbar.css";
 
 const Filterbar = ({ datas, setDatas }) => {
-  // console.log("datas ", datas);
   const handleChange = (e) => {
     if (e.target.value === "D-day") {
       const cpDatas = datas.slice();
       const dDaySort = cpDatas.sort((a, b) => a.d_day - b.d_day);
       setDatas(dDaySort);
     }
+
     if (e.target.value === "Create At") {
       const cpDatas = datas.slice();
       const createdAtSort = cpDatas.sort(

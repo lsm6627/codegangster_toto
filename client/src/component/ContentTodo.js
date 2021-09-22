@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./ContentTodo.css";
 
+
 const ContentTodo = ({ datas, setDatas }) => {
 
     const [isChecked, setIsChecked] = useState(false);
@@ -13,7 +14,7 @@ const ContentTodo = ({ datas, setDatas }) => {
           target.parentNode.parentNode.parentNode.parentNode.parentNode.children[1].className ="todoContent unChecked";
         }
     }
-
+    
     const deleteTodo = (some, deleteId) => {
         const filterTodo = datas.filter((todo) => {
             return todo.id !== deleteId
@@ -46,7 +47,6 @@ const ContentTodo = ({ datas, setDatas }) => {
                                     </span>
                                 </div>
                             </div>
-
                             <div className="todoContent">
                                 {todo.content}
                             </div>
