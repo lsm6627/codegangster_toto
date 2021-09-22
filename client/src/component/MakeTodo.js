@@ -1,77 +1,82 @@
-import React from 'react';
-import {useState} from 'react';
-import './MakeTodo.css';
-import dummyTodos from '../static/dummyData';
-import shortid from 'shortid';
-import DatePicker, {registerLocale, setDefaultLocale} from "react-datepicker"
+import React from "react";
+import { useState } from "react";
+import "./MakeTodo.css";
+// import ContentTodo from "./ContentTodo";
+// import dummyTodos from "../static/dummyData";
+import shortid from "shortid";
+import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import ko from 'date-fns/locale/ko'
-registerLocale('ko', ko)
+import ko from "date-fns/locale/ko";
 
+registerLocale("ko", ko);
 
+const MakeTodo = ({ datas, setDatas }) => {
+  const [message, setMessage] = useState("");
+  const [startDate, setStartDate] = useState(new Date());
 
-const MakeTodo = () => {
+  const today = new Date();
+  const dday = startDate;
+  const gap = dday - today.getTime();
+  const result = Math.ceil(gap / (1000 * 60 * 60 * 24));
 
-    const [message, setMessage] = useState("")
-    const [todoList, setTodoList] = useState([...dummyTodos]);
-    const [startDate, setStartDate] = useState(new Date());
-
-
-const today = new Date();
-const dday = startDate;
-const gap = dday - today.getTime();
-const result = Math.ceil(gap / (1000 * 60 * 60 * 24));
-
-
-const addTodoClick = (event) => {
+  const addTodoClick = (event) => {
     const todo = {
-        id : shortid(),
-        d_day : result,
-        content : message,
-        check : false,
-        createdAt : new Date().toLocaleDateString('ko-KR'),
-        updatedAt : new Date().toLocaleDateString('ko-KR')
-    }
-    
-    setTodoList([...todoList, todo]);
+      id: shortid(),
+      d_day: result,
+      content: message,
+      check: false,
+      createdAt: new Date().toLocaleDateString("ko-KR"),
+      updatedAt: new Date().toLocaleDateString("ko-KR"),
+    };
+
+    setDatas([...datas, todo]);
     setMessage("");
-    console.log(todoList)
-}
+  };
 
-
-const handleChangeMsg = (event) => {
+  const handleChangeMsg = (event) => {
     setMessage(event.target.value);
-}
-
-return (
-    <div>
-        <div className = "MakeTodo_input">
-
-            <DatePicker className = "MakeTodo_input__calendar"
-                        selected = {startDate}
-                        onChange = {date => setStartDate(date)}
-                        locale = {ko}
-                        dateFormat="yyyy년 MM월 dd일"
-                        minDate = {new Date()}>
-            </DatePicker>
-
-    
-        <div className = "MakeTodo_input--message">
-            <input type = "text"
-                    value = {message}
-                    onChange = {handleChangeMsg}
-                    placeholder = "일정을 입력하세요">
-            </input>
-        </div>
-     
-
-            <button className = "MakeTodo_input--submit" onClick = {addTodoClick}>
-                <i className="fas fa-plus"></i>
-            </button>
-
-        </div>
+  };
+  return (
+    <div className="Container">
+      <div className="MakeTodo_input">
+        <i class="fas fa-pencil-alt"></i>
+        <span className="MakeTodo_title">MAKE TODO!</span>
+        <i class="fas fa-calendar-day"></i>
+        <DatePicker
+          className="MakeTodo_input__calendar"
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+          locale={ko}
+          dateFormat="yyyy년 MM월 dd일"
+          minDate={new Date()}
+        ></DatePicker>
+        {/* ! 나 이부분 수정함!! 내일 말 하셈!!! 진짜 리얼로!! */}
+        {message ? (
+          <button className="MakeTodo_input--submit" onClick={addTodoClick}>
+            ADD
+          </button>
+        ) : (
+          <button
+            className="MakeTodo_input--submit"
+            onClick={() => alert("입력된 내용이 없습니다!")}
+          >
+            ADD
+          </button>
+        )}
+      </div>
+      {/* 여기로 왔다!!!!!!!! */}
+      <div className="MakeTodo_input--message">
+        <input
+          className="input_message"
+          type="text"
+          value={message}
+          onChange={handleChangeMsg}
+          placeholder="일정을 입력하세요"
+        ></input>
+      </div>
+      {/* 여기있던 div */}
     </div>
-)
-}
+  );
+};
 
 export default MakeTodo;

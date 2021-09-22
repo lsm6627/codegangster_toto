@@ -23,5 +23,3 @@ module.exports = {
     await queryInterface.removeColumn('todos', 'userId');
   }
 };
-
-
