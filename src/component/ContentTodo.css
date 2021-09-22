@@ -29,6 +29,15 @@
   margin-top: 0;
 }
 
+.createTodo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: small;
+  opacity: 0.5;
+}
+
 .todoContent {
   font-size: 30px;
   margin-top: 10px;
@@ -80,8 +89,7 @@ input[type="checkbox"]:checked::after {
   height: 30px;
   width: 30px;
   background-color: white;
-  border: solid;
-  border-radius: 8px;
+  border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -91,7 +99,7 @@ input[type="checkbox"]:checked::after {
 }
 
 .todoContent_deleteButton:hover {
-  box-shadow: gray 2px 2px 2px;
   color: #e63946;
-  border: solid black;
+  text-shadow: #a0a0a0 0 1px 1px;
+  font-weight: 800;
 }
