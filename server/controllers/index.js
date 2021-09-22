@@ -24,5 +24,16 @@ module.exports ={
         // console.log((await fk.createUser()).toJSON());
         if(!result) return res.status(404).json('not found')
         res.status(200).json({message: 'created', data: result});
+    },
+
+    delete: async(req, res) =>{
+        
+
+        const id = req.body.id;
+        if(!id) return res.sendStatus(400);
+
+        await todos.destroy({where: {id: id}}).catch((err)=>res.json(err));
+        
+        return res.status(204).json({message: 'delete!'})
     }
 }
