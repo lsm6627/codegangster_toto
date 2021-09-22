@@ -1,6 +1,8 @@
 const { User } = require('../models');
 const { todos } = require('../models');
 
+const { User } = require('../models');
+const { todos } = require('../models');
 
 module.exports ={
     get:async(req, res) =>{
@@ -22,14 +24,12 @@ module.exports ={
             if(!result) return res.status(404).json('not found');
             res.status(200).json({message: 'create!', data: result});
         }
-        // const userTodo = req.body.user_todo;
+        const userInfo = await User.findOne({where: {userId: userId}}).catch((err) => res.json(err));
+        const result = await todos.create({todo: todo, userId: userInfo.id}).catch((err) => res.json(err));
+        // const fk = await todos.findOne();
+        // console.log((await fk.createUser()).toJSON());
+        if(!result) return res.status(404).json('not found')
+        res.status(200).json({message: 'created', data: result});
 
-        // todo를 테이블에 넣어준다.
-        
-        //id는 로그인 단계에서 받아야 한다. 
-
-
-        // res 하기 전에 todo 테이블에서user id로 조회를 한다. 
-        // 그 id의 todo를 전부 모아서 보내준다. 
     }
 }
