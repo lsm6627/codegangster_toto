@@ -2,7 +2,8 @@ require("dotenv").config();
 const express = require('express');
 // const fs = require("fs");
 const cors = require('cors');
-const controller = require('./controllers');
+const controllers = require('./controllers');
+
 
 const app = express();
 const port = 4000;
@@ -18,7 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 
-app.get('/', controller.get);
+app.get('/', controllers.get);
+app.post('/', controllers.post);
 
 app.post('/', controller.post);
 

@@ -1,39 +1,25 @@
-const {User} = require('../models');
-const {todos} = require('../models');
 
+const { User } = require('../models');
+const { todos } = require('../models');
 
-module.exports ={
-    get:async(req, res) =>{
-        // const allUrlLink = await models.url.findAll();
-        const modelsThing = await User.findAll();
-        console.log(User)
-
-        if(!modelsThing) res.status(404).send('that is not url');
-        res.status(200).json("plz don't make error");
+module.exports = {
+    get: async(req, res) => {
+        const result = await todos.findAll().catch((err) => res.json(err));
+        if(!result) return res.status(404).json('not found')
+        res.status(200).json(result);
     },
-
-    post: async(req, res) =>{
-        // Todo api 
-        const usertodo = todos.findOne({
-            where: {userId: req.body.userId, password: req.body.password},
-        })
-        
-        if(!usertodo) {
-            res.status(404).send({message: "you've got a Wrong"});
-        } else {
-            req.session.save(()=>{
-                req.session.user = usertodo.userId;
-                res.json({data: usertodo, message: "good"})
-            })
+    post: async(req, res) => {
+        const todo = req.body.todo;
+        const userId = req.body.userId;
+        if(!todo) {
+          return res.sendStatus(400);
         }
-        // const userTodo = req.body.user_todo;
+        const userInfo = await User.findOne({where: {userId: userId}}).catch((err) => res.json(err));
+        const result = await todos.create({todo: todo, userId: userInfo.id}).catch((err) => res.json(err));
+        // const fk = await todos.findOne();
+        // console.log((await fk.createUser()).toJSON());
+        if(!result) return res.status(404).json('not found')
+        res.status(200).json({message: 'created', data: result});
 
-        // todo를 테이블에 넣어준다.
-        
-        //id는 로그인 단계에서 받아야 한다. 
-
-
-        // res 하기 전에 todo 테이블에서user id로 조회를 한다. 
-        // 그 id의 todo를 전부 모아서 보내준다. 
     }
 }
