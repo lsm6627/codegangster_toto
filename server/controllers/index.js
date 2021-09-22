@@ -1,30 +1,26 @@
-const {User} = require('../models');
-const {todos} = require('../models');
+const { User } = require('../models');
+const { todos } = require('../models');
 
 
 module.exports ={
     get:async(req, res) =>{
         // const allUrlLink = await models.url.findAll();
-        const modelsThing = await User.findAll();
+        const result = await todos.findAll().catch((err)=> res.json(err));
         console.log(User)
 
-        if(!modelsThing) res.status(404).send('that is not url');
-        res.status(200).json("plz don't make error");
+        if(!result) return res.status(404).json('not found');
+        res.status(200).json(result);
     },
 
     post: async(req, res) =>{
         // Todo api 
-        const usertodo = todos.findOne({
-            where: {userId: req.body.userId, password: req.body.password},
-        })
-        
-        if(!usertodo) {
-            res.status(404).send({message: "you've got a Wrong"});
+        const todo = req.body.todo;
+        if(!todo) {
+            return res.status(404).send({message: "you've got a Wrong"});
         } else {
-            req.session.save(()=>{
-                req.session.user = usertodo.userId;
-                res.json({data: usertodo, message: "good"})
-            })
+            const result = await todo.create({todo: todo}).catch((err)=> res.json(err))
+            if(!result) return res.status(404).json('not found');
+            res.status(200).json({message: 'create!', data: result});
         }
         // const userTodo = req.body.user_todo;
 
