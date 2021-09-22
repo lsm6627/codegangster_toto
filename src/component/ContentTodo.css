@@ -1,9 +1,9 @@
 .todo_Container {
-  display: inline-flex;
+  display: block;
 }
 
 .todoList {
-  display: inline-table;
+  display: block;
   list-style: none;
   background-color: white;
   border-radius: 45px;
@@ -42,6 +42,17 @@
   font-size: 30px;
   margin-top: 10px;
   text-align: center;
+}
+
+.checked {
+  text-decoration: line-through 4px;
+  opacity: 0.3;
+  transition: 500ms ease all;
+}
+
+.unChecked {
+  text-decoration: none;
+  transition: 500ms ease all;
 }
 
 input[type="checkbox"] {

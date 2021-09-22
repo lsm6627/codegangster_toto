@@ -4,25 +4,14 @@ import "./ContentTodo.css";
 const ContentTodo = ({ datas, setDatas }) => {
 
     const [isChecked, setIsChecked] = useState(false);
-    const [checkedItems, setCheckedItems] = useState(new Set());
 
     const checkHandler = ({ target }) => {
-        console.log(target)
         setIsChecked(!isChecked);
-        checkedItemHandler(target.parentNode, target.value, target.checked);
-    };
-
-    const checkedItemHandler = (box, id, isChecked) => {
-        if(isChecked) {
-            checkedItems.add(id);
-            setCheckedItems(checkedItems)
-            box.style.backgroundColor = "#F6cB44"; 
-        } else if(!isChecked && checkedItems.has(id)) {
-            checkedItems.delete(id);
-            setCheckedItems(checkedItems);
-            box.style.backgroundColor = "#fff";
+        if (target.checked) {
+          target.parentNode.parentNode.parentNode.parentNode.parentNode.children[1].className="todoContent checked";
+        } else {
+          target.parentNode.parentNode.parentNode.parentNode.parentNode.children[1].className ="todoContent unChecked";
         }
-        return checkedItems;
     }
 
     const deleteTodo = (some, deleteId) => {
