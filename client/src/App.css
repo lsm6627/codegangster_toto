@@ -18,3 +18,8 @@ main {
   padding-bottom: 0;
   border-radius: 40px;
 }
+
+.listPart {
+  display: block;
+  min-width: 100%;
+}
