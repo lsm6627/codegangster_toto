@@ -95,3 +95,11 @@ input[type="checkbox"]:checked::after {
   color: #e63946;
   border: solid black;
 }
+
+.checked {
+  text-decoration: line-through;
+}
+
+.unChecked {
+  text-decoration: none;
+}
