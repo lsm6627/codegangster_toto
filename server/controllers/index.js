@@ -9,12 +9,15 @@ module.exports = {
     },
     post: async(req, res) => {
         const todo = req.body.todo;
+        const userId = req.body.userId;
         if(!todo) {
           return res.sendStatus(400);
         }
-        const userId = await User.findOnd({where: {userId: 'kimcoding'}}).catch((err) => res.json(err));
-        console.log(userId);
-        const result = await todos.create({todo: req.body.todo}).catch((err) => res.json(err));
-        res.status(200).json(result);
+        const userInfo = await User.findOne({where: {userId: userId}}).catch((err) => res.json(err));
+        const result = await todos.create({todo: todo, userId: userInfo.id}).catch((err) => res.json(err));
+        // const fk = await todos.findOne();
+        // console.log((await fk.createUser()).toJSON());
+        if(!result) return res.status(404).json('not found')
+        res.status(200).json({message: 'created', data: result});
     }
 }

@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const controllers = require('./controllers');
 
+
 const app = express();
 const port = 4000;
 
@@ -19,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 
 
 app.get('/', controllers.get);
-app.get('/', controllers.post);
+app.post('/', controllers.post);
 
 
 let server = app.listen(port, () => {
