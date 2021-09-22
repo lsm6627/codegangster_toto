@@ -1,6 +1,6 @@
-import React from "react";
-import "./CountClear.css";
-import dummyData from "../static/dummyData";
+import React from 'react';
+import './CountClear.css';
+import dummyData from '../static/dummyData';
 
 const CountClear = ({ isClear, handleClear, datas, setDatas }) => {
   return (

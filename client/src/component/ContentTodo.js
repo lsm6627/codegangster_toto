@@ -1,9 +1,19 @@
-import React, { useState } from "react";
-import "./ContentTodo.css";
-import dummy from "../static/dummyData";
+import React, { useState } from 'react';
+import './ContentTodo.css';
 
 const ContentTodo = ({ datas, setDatas }) => {
   const [isChecked, setIsChecked] = useState(false);
+
+  const checkHandler = ({ target }) => {
+    setIsChecked(!isChecked);
+    if (target.checked) {
+      target.parentNode.parentNode.parentNode.parentNode.parentNode.children[1].className =
+        'todoContent checked';
+    } else {
+      target.parentNode.parentNode.parentNode.parentNode.parentNode.children[1].className =
+        'todoContent unChecked';
+    }
+  };
 
   const deleteTodo = (some, deleteId) => {
     const filterTodo = datas.filter((todo) => {
@@ -12,16 +22,6 @@ const ContentTodo = ({ datas, setDatas }) => {
     setDatas(filterTodo);
   };
 
-  const checkHandler = ({ target }) => {
-    setIsChecked(!isChecked);
-    if (target.checked) {
-      target.parentNode.parentNode.parentNode.parentNode.parentNode.children[1].className =
-        "checked";
-    } else {
-      target.parentNode.parentNode.parentNode.parentNode.parentNode.children[1].className =
-        "unChecked";
-    }
-  };
   return (
     <div className="todo_Container">
       <ul className="todoLists">
@@ -32,7 +32,7 @@ const ContentTodo = ({ datas, setDatas }) => {
               <div className="todoMenu">
                 <div className="todoDate">D - {todo.d_day}</div>
                 <div className="createTodo">
-                  {new Date(todo.createdAt).toLocaleDateString("ko-kr")}
+                  {new Date(todo.createdAt).toLocaleDateString('ko-kr')}
                 </div>
                 <div className="buttons">
                   <span className="todoContent_checkbox">
@@ -40,9 +40,7 @@ const ContentTodo = ({ datas, setDatas }) => {
                       <input
                         type="checkbox"
                         id="check"
-                        onChange={(e) => {
-                          checkHandler(e);
-                        }}
+                        onChange={(e) => checkHandler(e)}
                       />
                     </div>
                   </span>
@@ -56,8 +54,7 @@ const ContentTodo = ({ datas, setDatas }) => {
                   </span>
                 </div>
               </div>
-
-              <div>{todo.content}</div>
+              <div className="todoContent">{todo.content}</div>
             </li>
           );
         })}
