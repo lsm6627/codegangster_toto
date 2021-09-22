@@ -1,4 +1,4 @@
-.todoContainer {
+.todoLists {
   display: inline-block;
 }
 
@@ -7,22 +7,7 @@
   background-color: white;
   border-radius: 40px;
   box-shadow: gray 2px 2px 2px;
-  margin: 50px;
+  margin-top: 24.5px;
   width: 50vw;
   height: 80px;
-}
-
-.todoDate {
-}
-
-.todoContent_checkbox {
-}
-
-.todoContent_delete {
-}
-
-.todoContent_deleteButton {
-}
-
-.todoContent_deleteButton > button > .far {
 }
