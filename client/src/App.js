@@ -1,20 +1,24 @@
-import React, { useState } from "react";
-import { BrowserRouter } from "react-router-dom";
+import React, { useState } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import axios from 'axios';
 
+import ContentTodo from './component/ContentTodo';
+import CountClear from './component/CountClear';
+import Filterbar from './component/Filterbar';
+import Footer from './Footer';
+import Header from './Header';
+import MakeTodo from './component/MakeTodo';
+import dummy from './static/dummyData';
 
-import ContentTodo from "./component/ContentTodo";
-import CountClear from "./component/CountClear";
-import Filterbar from "./component/Filterbar";
-import Footer from "./Footer";
-import Header from "./Header";
-import MakeTodo from "./component/MakeTodo";
-import dummy from "./static/dummyData";
-
-import "./App.css";
+import './App.css';
 
 function App() {
+  axios
+    .get('http://localhost:4000')
+    .then((res) => console.log('axios~', res.data));
   const [isClear, setIsClear] = useState(false);
   const [datas, setDatas] = useState(dummy);
+  console.log('ddd!!', datas);
 
   const handleClear = () => {
     setIsClear(true);
@@ -33,7 +37,8 @@ function App() {
             datas={datas}
             setDatas={setDatas}
             isClear={isClear}
-            handleClear={handleClear}/>
+            handleClear={handleClear}
+          />
 
           <div className="listPart">
             <ContentTodo datas={datas} setDatas={setDatas} />
