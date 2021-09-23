@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 
 import ContentTodo from "./component/ContentTodo";
@@ -28,13 +28,11 @@ function App() {
           <Header />
           <Filterbar datas={datas} setDatas={setDatas} />
           <MakeTodo datas={datas} setDatas={setDatas} />
-
           <CountClear
             datas={datas}
             setDatas={setDatas}
             isClear={isClear}
             handleClear={handleClear}/>
-
           <div className="listPart">
             <ContentTodo datas={datas} setDatas={setDatas} />
           </div>
