@@ -8,13 +8,12 @@ module.exports = {
         res.status(200).json(result);
     },
     post: async(req, res) => {
-        const todo = req.body.todo;
-        const userId = req.body.userId;
+        const { todo, userId, d_day, isChecked } = req.body;
         if(!todo) {
           return res.sendStatus(400);
         }
         const userInfo = await User.findOne({where: {userId: userId}}).catch((err) => res.json(err));
-        const result = await todos.create({todo: todo, userId: userInfo.id}).catch((err) => res.json(err));
+        const result = await todos.create({todo: todo, userId: userInfo.id, d_day: d_day, isChecked: isChecked}).catch((err) => res.json(err));
         // const fk = await todos.findOne();
         // console.log((await fk.createUser()).toJSON());
         if(!result) return res.status(404).json('not found')
