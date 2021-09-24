@@ -12,35 +12,24 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: { allowNull: false, name: 'userId' }
       });
     }
-<<<<<<< HEAD
   }
   todos.init(
     {
       todo: DataTypes.STRING,
-      d_day: DataTypes.INTEGER
+      d_day: {
+        allowNull: false,
+        type: DataTypes.STRING
+      },
+      isChecked: {
+        allowNull: false,
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+      }
     },
     {
       sequelize,
       modelName: 'todos'
     }
   );
-=======
-  };
-  todos.init({
-    todo: DataTypes.STRING,
-    d_day: {
-      allowNull: false,
-      type: DataTypes.STRING
-    },
-    isChecked: {
-      allowNull: false,
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
-    }
-  }, {
-    sequelize,
-    modelName: 'todos',
-  });
->>>>>>> d7860b9df42564d39e97e69f4892592cff5f6eca
   return todos;
 };

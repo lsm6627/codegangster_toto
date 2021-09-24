@@ -17,12 +17,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-<<<<<<< HEAD
-app.get('/', controllers.get);
-=======
-
 app.get('/todos', controllers.get);
->>>>>>> d7860b9df42564d39e97e69f4892592cff5f6eca
 
 app.post('/todos', controllers.post);
 
