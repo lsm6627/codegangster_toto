@@ -17,11 +17,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 
-app.get('/', controllers.get);
+app.get('/todos', controllers.get);
 
-app.post('/', controllers.post);
+app.post('/todos', controllers.post);
 
-app.delete('/', controllers.delete);
+app.delete('/todos', controllers.delete);
 
 
 let server = app.listen(port, () => {
