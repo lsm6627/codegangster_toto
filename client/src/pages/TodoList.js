@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './TodoList.css';
 
 import Header from '../Header';
@@ -7,11 +7,15 @@ import MakeTodo from '../component/MakeTodo';
 import CountClear from '../component/CountClear';
 import ContentTodo from '../component/ContentTodo';
 import Footer from '../Footer';
-import dummy from '../static/dummyData';
+import axios from 'axios';
 
 const TodoList = ({}) => {
   const [isClear, setIsClear] = useState(false);
-  const [datas, setDatas] = useState(dummy);
+  const [datas, setDatas] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:4000/todos').then((res) => setDatas(res.data));
+  }, []);
 
   const handleClear = () => {
     setIsClear(true);
