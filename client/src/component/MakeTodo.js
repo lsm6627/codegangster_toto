@@ -19,7 +19,6 @@ const MakeTodo = ({ datas, setDatas }) => {
   const dday = startDate;
   const gap = dday - today.getTime();
   const result = Math.ceil(gap / (1000 * 60 * 60 * 24));
-  console.log('MakeTodo~', startDate);
   const addTodoClick = (event) => {
     axios
       .post('http://localhost:4000', {
