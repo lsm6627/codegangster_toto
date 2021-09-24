@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ContentTodo.css';
+import axios from 'axios';
 
 const ContentTodo = ({ datas, setDatas }) => {
   const [isChecked, setIsChecked] = useState(false);
@@ -14,8 +15,16 @@ const ContentTodo = ({ datas, setDatas }) => {
         'todoContent unChecked';
     }
   };
+  const makeDDay = (startDate) => {
+    const today = new Date();
+    const dday = new Date(startDate);
+    const gap = dday - today.getTime();
+    const result = Math.ceil(gap / (1000 * 60 * 60 * 24));
+    return result;
+  };
 
   const deleteTodo = (some, deleteId) => {
+    axios.delete('http://localhost:4000', { data: { id: deleteId } });
     const filterTodo = datas.filter((todo) => {
       return todo.id !== deleteId;
     });
@@ -30,7 +39,7 @@ const ContentTodo = ({ datas, setDatas }) => {
             <li className="todoList" key={todo.id}>
               {/* 각 리스트 항목들 */}
               <div className="todoMenu">
-                <div className="todoDate">D - {todo.d_day}</div>
+                <div className="todoDate">D - {makeDDay(todo.d_day)}</div>
                 <div className="createTodo">
                   {new Date(todo.createdAt).toLocaleDateString('ko-kr')}
                 </div>
@@ -54,7 +63,7 @@ const ContentTodo = ({ datas, setDatas }) => {
                   </span>
                 </div>
               </div>
-              <div className="todoContent">{todo.content}</div>
+              <div className="todoContent">{todo.todo}</div>
             </li>
           );
         })}
