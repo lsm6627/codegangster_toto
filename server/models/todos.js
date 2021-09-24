@@ -14,7 +14,16 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   todos.init({
-    todo: DataTypes.STRING
+    todo: DataTypes.STRING,
+    d_day: {
+      allowNull: false,
+      type: DataTypes.INTEGER
+    },
+    isChecked: {
+      allowNull: false,
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   }, {
     sequelize,
     modelName: 'todos',
