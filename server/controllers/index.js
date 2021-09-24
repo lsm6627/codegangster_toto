@@ -14,20 +14,18 @@ module.exports = {
         }
         const userInfo = await User.findOne({where: {userId: userId}}).catch((err) => res.json(err));
         const result = await todos.create({todo: todo, userId: userInfo.id, d_day: d_day, isChecked: isChecked}).catch((err) => res.json(err));
-        // const fk = await todos.findOne();
-        // console.log((await fk.createUser()).toJSON());
         if(!result) return res.status(404).json('not found')
         res.status(200).json({message: 'created', data: result});
     },
 
     delete: async(req, res) =>{
-        
-
         const id = req.body.id;
-        if(!id) return res.sendStatus(400);
-
-        await todos.destroy({where: {id: id}}).catch((err)=>res.json(err));
-        
-        return res.status(204).json({message: 'delete!'})
-    }
+        if(!id) {
+            await todos.destroy({ truncate: true }).catch((err)=>res.json(err));
+            return res.status(204).json({message:"deleted all"});
+        } else {
+            await todos.destroy({where: {id: id}}).catch((err)=>res.json(err));
+            return res.status(204).json({message:"deleted"});
+        }
+    },
 }

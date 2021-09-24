@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     todo: DataTypes.STRING,
     d_day: {
       allowNull: false,
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
     isChecked: {
       allowNull: false,
