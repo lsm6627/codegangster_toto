@@ -9,19 +9,15 @@
 :root {
   background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
   --default-text-color: rgb(255, 255, 255);
+  height: fit-content;
 }
 
 main {
   display: block;
-  height: 100vh;
   min-width: 500px;
   padding: 25px;
   padding-bottom: 0;
   border-radius: 40px;
-}
-
-section{
-  height: 100vh;
 }
 
 .listPart {
