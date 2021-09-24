@@ -16,7 +16,7 @@ function App() {
   const [datas, setDatas] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:4000').then((res) => setDatas(res.data));
+    axios.get('http://localhost:4000/todos').then((res) => setDatas(res.data));
   }, []);
 
   return (

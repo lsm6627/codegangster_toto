@@ -17,7 +17,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get('/', controllers.get);
+app.get('/todos', controllers.get);
 
 app.post('/todos', controllers.post);
 

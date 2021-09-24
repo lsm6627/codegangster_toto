@@ -12,21 +12,24 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       models.todos.belongsTo(models.User, { foreignKey: {allowNull: false, name: "userId" }});
     }
-  };
-  todos.init({
-    todo: DataTypes.STRING,
-    d_day: {
-      allowNull: false,
-      type: DataTypes.STRING
+  }
+  todos.init(
+    {
+      todo: DataTypes.STRING,
+      d_day: {
+        allowNull: false,
+        type: DataTypes.STRING
+      },
+      isChecked: {
+        allowNull: false,
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+      }
     },
-    // isChecked: {
-    //   allowNull: false,
-    //   type: DataTypes.BOOLEAN,
-    //   defaultValue: false
-    // }
-  }, {
-    sequelize,
-    modelName: 'todos',
-  });
+    {
+      sequelize,
+      modelName: 'todos'
+    }
+  );
   return todos;
 };
