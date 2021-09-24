@@ -1,8 +1,14 @@
-import React from "react";
-import "./CountClear.css";
-import dummyData from "../static/dummyData";
+import React from 'react';
+import './CountClear.css';
+import dummyData from '../static/dummyData';
+import axios from 'axios';
 
-const CountClear = ({ isClear, handleClear, datas, setDatas }) => {
+const CountClear = ({ datas, setDatas }) => {
+  axios.delete('http://localhost:4000/todos');
+  const handleClear = () => {
+    setDatas([]);
+  };
+
   return (
     <div className="count_Container">
       {!datas.length ? (
