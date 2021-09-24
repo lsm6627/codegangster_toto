@@ -12,3 +12,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'coolvetica condensed rg';
+  src: url('./fonts/coolvetica\ condensed\ rg.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

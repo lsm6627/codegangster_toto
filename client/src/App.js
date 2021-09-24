@@ -1,9 +1,10 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import "./App.css";
-import TodoList from "./pages/TodoList";
-import Login from "./pages/Login";
+import './App.css';
+import TodoList from './pages/TodoList';
+import Login from './pages/Login';
+import SingUp from './pages/SingUp';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
               </Route>
               <Route path="/login">
                 <Login />
+              </Route>
+              <Route path="/signup">
+                <SingUp />
               </Route>
             </Switch>
           </section>

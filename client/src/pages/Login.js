@@ -18,8 +18,11 @@ const Login = ({}) => {
           <i class="fas fa-unlock-alt"></i>
           <input className="password" type="password" />
         </div>
-        <div className="loginTodolist__loginBtnContainer">
+        <div className="loginTodolist__BtnContainer">
           <button className="loginBtn">Login</button>
+        </div>
+        <div className="loginTodolist__BtnContainer">
+          <button className="singUpBtn">Sing Up</button>
         </div>
       </div>
       <div className="footer">

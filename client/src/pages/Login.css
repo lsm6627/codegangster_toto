@@ -57,10 +57,12 @@
   border-left: none;
   border-right: none;
   border-radius: 8px;
+  border-bottom: none;
   box-shadow: gray 2px 2px 2px;
   transition: 600ms ease all;
   padding: 5px;
   padding-left: 10px;
+  font-family: 'coolvetica condensed rg';
 }
 
 .userId:focus {
@@ -69,19 +71,18 @@
 
 .password {
   max-width: 90%;
-  font-size: 25px;
+  height: 60px;
+  font-size: 35px;
   border-top: none;
   border-left: none;
   border-right: none;
   border-radius: 8px;
+  border-bottom: none;
   box-shadow: gray 2px 2px 2px;
   transition: 600ms ease all;
   padding: 5px;
   padding-left: 10px;
-}
-
-input[type='password'] {
-  font-family: '굴림';
+  font-family: 'coolvetica condensed rg';
 }
 
 .password:focus {
@@ -100,9 +101,8 @@ input[type='password'] {
   margin-right: 6px;
 }
 
-.loginTodolist__loginBtnContainer {
+.loginTodolist__BtnContainer {
   display: flex;
-  justify-content: center;
   margin-top: 30px;
   margin-bottom: -15px;
 }
@@ -144,6 +144,46 @@ input[type='password'] {
 }
 
 .loginBtn:active {
+  box-shadow: none;
+}
+
+.singUpBtn {
+  font-family: 'AVENGEANCE HEROIC AVENGER AT';
+  flex-wrap: nowrap;
+  background: #ffc8dd;
+  border: solid;
+  position: relative;
+  border-radius: 10px;
+  height: 58px;
+  cursor: pointer;
+  transition: 800ms ease all;
+  outline: none;
+  box-shadow: gray 2px 2px 2px;
+  width: 80vw;
+  font-size: 28px;
+  letter-spacing: 3px;
+}
+
+.singUpBtn:hover {
+  background: #fffffc;
+  box-shadow: gray 6px 6px 6px;
+}
+
+.singUpBtn:before,
+.singUpBtn:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  transition: ease all;
+}
+
+.singUpBtn:hover:before,
+.singUpBtn:hover:after {
+  width: 100%;
+  transition: ease all;
+}
+
+.singUpBtn:active {
   box-shadow: none;
 }
 
