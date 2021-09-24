@@ -14,7 +14,7 @@ module.exports = {
       },
       d_day: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       isChecked: {
         allowNull: false,
