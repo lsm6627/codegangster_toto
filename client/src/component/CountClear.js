@@ -1,8 +1,12 @@
-import React from "react";
-import "./CountClear.css";
-import dummyData from "../static/dummyData";
+import React from 'react';
+import './CountClear.css';
+import dummyData from '../static/dummyData';
 
-const CountClear = ({ isClear, handleClear, datas, setDatas }) => {
+const CountClear = ({ datas, setDatas }) => {
+  const handleClear = () => {
+    setDatas([]);
+  };
+
   return (
     <div className="count_Container">
       {!datas.length ? (

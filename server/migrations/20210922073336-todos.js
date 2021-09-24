@@ -16,11 +16,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      isChecked: {
-        allowNull: false,
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
