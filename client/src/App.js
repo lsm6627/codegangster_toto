@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     axios.get('http://localhost:4000/todos').then((res) => setDatas(res.data));
   }, []);
-
+  console.log(datas);
   return (
     <BrowserRouter>
       <div className="App">
