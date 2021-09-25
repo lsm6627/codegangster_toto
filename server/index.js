@@ -11,7 +11,7 @@ app.use(
   cors({
     origin: ['http://localhost:3000'],
     credentials: true,
-    methods: ['GET', 'POST', 'OPTIONS', 'DELETE']
+    methods: ['GET', 'POST', 'OPTIONS', 'DELETE', 'PUT']
   })
 );
 app.use(express.json());
@@ -22,6 +22,8 @@ app.get('/todos', controllers.get);
 app.post('/todos', controllers.post);
 
 app.delete('/todos', controllers.delete);
+
+app.put('/todos', controllers.update);
 
 let server = app.listen(port, () => {
   console.log(`server running on ${port}`);

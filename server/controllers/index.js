@@ -36,5 +36,18 @@ module.exports = {
       await todos.destroy({ where: { id: id } }).catch((err) => res.json(err));
       return res.status(204).json({ message: 'deleted' });
     }
+  },
+
+  update: async (req, res) => {
+    console.log('UUUUUU', req.body.isChecked);
+    const { id, isChecked } = req.body;
+    if (!id) {
+      return res.sendStatus(400);
+    } else {
+      await todos
+        .update({ isChecked: isChecked }, { where: { id: id } })
+        .catch((err) => res.json(err));
+      return res.status(200).json({ message: 'update' });
+    }
   }
 };

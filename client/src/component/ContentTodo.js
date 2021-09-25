@@ -3,17 +3,19 @@ import './ContentTodo.css';
 import axios from 'axios';
 
 const ContentTodo = ({ datas, setDatas }) => {
-  const [isChecked, setIsChecked] = useState(false);
-
-  const checkHandler = ({ target }) => {
-    setIsChecked(!isChecked);
-    if (target.checked) {
-      target.parentNode.parentNode.parentNode.parentNode.parentNode.children[1].className =
-        'todoContent checked';
-    } else {
-      target.parentNode.parentNode.parentNode.parentNode.parentNode.children[1].className =
-        'todoContent unChecked';
-    }
+  const checkHandler = ({ target }, id) => {
+    axios.put('http://localhost:4000/todos', {
+      id: id,
+      isChecked: target.checked === true ? 1 : 0
+    });
+    let cpDatas = datas.slice();
+    cpDatas = cpDatas.map((el) => {
+      if (el.id === id) {
+        el.isChecked = !el.isChecked;
+      }
+      return el;
+    });
+    setDatas(cpDatas);
   };
   const makeDDay = (startDate) => {
     const today = new Date();
@@ -30,7 +32,6 @@ const ContentTodo = ({ datas, setDatas }) => {
     });
     setDatas(filterTodo);
   };
-
   return (
     <div className="todo_Container">
       <ul className="todoLists">
@@ -49,7 +50,8 @@ const ContentTodo = ({ datas, setDatas }) => {
                       <input
                         type="checkbox"
                         id="check"
-                        onChange={(e) => checkHandler(e)}
+                        onChange={(e) => checkHandler(e, todo.id)}
+                        checked={todo.isChecked}
                       />
                     </div>
                   </span>
@@ -63,7 +65,15 @@ const ContentTodo = ({ datas, setDatas }) => {
                   </span>
                 </div>
               </div>
-              <div className="todoContent">{todo.todo}</div>
+              <div
+                className={
+                  todo.isChecked
+                    ? 'todoContent checked'
+                    : 'todoContent unChecked'
+                }
+              >
+                {todo.todo}
+              </div>
             </li>
           );
         })}
