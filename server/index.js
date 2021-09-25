@@ -30,6 +30,7 @@ app.post('/login', controllers.login);
 
 const HTTPS_PORT = process.env.HTTPS_PORT || 4000;
 
+
 let server;
 if (fs.existsSync('./key.pem') && fs.existsSync('./cert.pem')) {
   const privateKey = fs.readFileSync(__dirname + '/key.pem', 'utf8');
@@ -41,4 +42,5 @@ if (fs.existsSync('./key.pem') && fs.existsSync('./cert.pem')) {
 } else {
   server = app.listen(HTTPS_PORT);
 }
+
 module.exports = server;

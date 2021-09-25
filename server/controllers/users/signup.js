@@ -5,7 +5,7 @@ const crypto = require('crypto');
 module.exports = (req, res) => {
   const { userId, password } = req.body;
 
-  let inputPassword = body.password;
+  let inputPassword = password;
   let salt = Math.round(new Date().valueOf() * Math.random()) + '';
   let hashPassword = crypto
     .createHash('sha512')
@@ -19,17 +19,10 @@ module.exports = (req, res) => {
   })
     .then((data) => {
       if (!data) {
-        return res.status(403).json({ data: null, message: 'duplicate id' });
+        return res.status(403).json({ data: null, message: 'duplicated id' });
       }
     })
     .catch((err) => {
       res.json(err);
     });
-
-  User.create({
-    userId: req.body.userId,
-    password: hashPassword,
-    email: req.body.email,
-    salt: salt
-  });
 };
