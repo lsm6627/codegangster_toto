@@ -13,7 +13,7 @@ app.use(
   cors({
     origin: ['http://localhost:3000'],
     credentials: true,
-    methods: ['GET', 'POST', 'OPTIONS', 'DELETE']
+    methods: ['GET', 'POST', 'OPTIONS', 'DELETE', 'PUT']
   })
 );
 app.use(cookieParser());
@@ -25,6 +25,7 @@ app.get('/refreshtokenrequest', controllers.refreshTokenRequest);
 app.get('/todos', controllers.todo.get);
 app.post('/todos', controllers.todo.post);
 app.delete('/todos', controllers.todo.delete);
+app.put('/todos', controllers.todo.update);
 
 app.post('/login', controllers.login);
 
