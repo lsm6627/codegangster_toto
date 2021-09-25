@@ -14,7 +14,7 @@ const TodoList = ({}) => {
   const [datas, setDatas] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:4000/todos').then((res) => setDatas(res.data));
+    axios.get('https://localhost:4000/todos').then((res) => setDatas(res.data));
   }, []);
 
   const handleClear = () => {

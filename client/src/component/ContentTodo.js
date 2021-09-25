@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const ContentTodo = ({ datas, setDatas }) => {
   const checkHandler = ({ target }, id) => {
-    axios.put('http://localhost:4000/todos', {
+    axios.put('https://localhost:4000/todos', {
       id: id,
       isChecked: target.checked === true ? 1 : 0
     });
@@ -26,7 +26,7 @@ const ContentTodo = ({ datas, setDatas }) => {
   };
 
   const deleteTodo = (some, deleteId) => {
-    axios.delete('http://localhost:4000/todos', { data: { id: deleteId } });
+    axios.delete('https://localhost:4000/todos', { data: { id: deleteId } });
     const filterTodo = datas.filter((todo) => {
       return todo.id !== deleteId;
     });
