@@ -26,10 +26,8 @@ module.exports = (req, res) => {
   User.findOne({ where: { userId } })
     .then((data) => {
       if (!data) {
-        return res.json({
-          data: null,
-          message: 'refresh token has been tempered'
-        });
+        return res.redirect('/');
+        // ! 이게 맛냐?
       }
       delete data.dataValues.password;
 

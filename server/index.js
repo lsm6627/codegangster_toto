@@ -28,6 +28,8 @@ app.delete('/todos', controllers.todo.delete);
 
 app.post('/login', controllers.login);
 
+app.post('/signup', controllers.signup);
+
 const HTTPS_PORT = process.env.HTTPS_PORT || 4000;
 
 let server;

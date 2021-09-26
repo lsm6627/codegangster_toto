@@ -5,7 +5,7 @@ const crypto = require('crypto');
 module.exports = (req, res) => {
   const { userId, password } = req.body;
 
-  let inputPassword = body.password;
+  let inputPassword = password;
   let salt = Math.round(new Date().valueOf() * Math.random()) + '';
   let hashPassword = crypto
     .createHash('sha512')
@@ -18,7 +18,7 @@ module.exports = (req, res) => {
     }
   })
     .then((data) => {
-      if (!data) {
+      if (data) {
         return res.status(403).json({ data: null, message: 'duplicate id' });
       }
     })
@@ -31,5 +31,11 @@ module.exports = (req, res) => {
     password: hashPassword,
     email: req.body.email,
     salt: salt
-  });
+  })
+    .then((data) => {
+      return res.status(200).json({ data: data, message: 'completed sign Up' });
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 };

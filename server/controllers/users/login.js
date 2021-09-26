@@ -10,12 +10,11 @@ module.exports = (req, res) => {
   const { userId, password } = req.body;
   User.findOne({
     where: {
-      userId,
-      password
+      userId
     }
   })
     .then((data) => {
-      if (!data) {
+      if (!data.salt) {
         return res.status(401).send({ data: null, message: 'not authorized' });
       }
       delete data.dataValues.password;

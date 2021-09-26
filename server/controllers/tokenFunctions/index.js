@@ -6,7 +6,7 @@ module.exports = {
     return sign(data, process.env.ACCESS_SECRET, { expiresIn: '15s' });
   },
   generateRefreshToken: (data) => {
-    return sign(data, process.env.REFRESH_SECRET, { expiresIn: '30d' });
+    return sign(data, process.env.REFRESH_SECRET, { expiresIn: '1h' });
   },
   sendRefreshToken: (res, refreshToken) => {
     res.cookie('refreshToken', refreshToken, {
