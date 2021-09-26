@@ -13,7 +13,7 @@ app.use(
   cors({
     origin: ['http://localhost:3000'],
     credentials: true,
-    methods: ['GET', 'POST', 'OPTIONS', 'DELETE']
+    methods: ['GET', 'POST', 'OPTIONS', 'DELETE', 'PUT']
   })
 );
 app.use(cookieParser());
@@ -25,12 +25,14 @@ app.get('/refreshtokenrequest', controllers.refreshTokenRequest);
 app.get('/todos', controllers.todo.get);
 app.post('/todos', controllers.todo.post);
 app.delete('/todos', controllers.todo.delete);
-
+app.put('/todos', controllers.todo.update);
+app.post('/signup', controllers.signup);
 app.post('/login', controllers.login);
 
 app.post('/signup', controllers.signup);
 
 const HTTPS_PORT = process.env.HTTPS_PORT || 4000;
+
 
 let server;
 if (fs.existsSync('./key.pem') && fs.existsSync('./cert.pem')) {
@@ -43,4 +45,5 @@ if (fs.existsSync('./key.pem') && fs.existsSync('./cert.pem')) {
 } else {
   server = app.listen(HTTPS_PORT);
 }
+
 module.exports = server;

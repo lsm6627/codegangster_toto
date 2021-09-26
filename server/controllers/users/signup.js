@@ -3,7 +3,7 @@ const { User } = require('../../models');
 const crypto = require('crypto');
 
 module.exports = (req, res) => {
-  const { userId, password } = req.body;
+  const { userId, password, email } = req.body;
 
   let inputPassword = password;
   let salt = Math.round(new Date().valueOf() * Math.random()) + '';
@@ -19,7 +19,7 @@ module.exports = (req, res) => {
   })
     .then((data) => {
       if (data) {
-        return res.status(403).json({ data: null, message: 'duplicate id' });
+        return res.status(403).json({ data: null, message: 'duplicated id' });
       }
     })
     .catch((err) => {
@@ -27,9 +27,9 @@ module.exports = (req, res) => {
     });
 
   User.create({
-    userId: req.body.userId,
+    userId: userId,
     password: hashPassword,
-    email: req.body.email,
+    email: email,
     salt: salt
   })
     .then((data) => {
