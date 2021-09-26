@@ -28,11 +28,11 @@ app.delete('/todos', controllers.todo.delete);
 app.put('/todos', controllers.todo.update);
 app.post('/signup', controllers.signup);
 app.post('/login', controllers.login);
+app.get('/logout', controllers.logout);
 
 app.post('/signup', controllers.signup);
 
 const HTTPS_PORT = process.env.HTTPS_PORT || 4000;
-
 
 let server;
 if (fs.existsSync('./key.pem') && fs.existsSync('./cert.pem')) {

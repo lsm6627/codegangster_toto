@@ -26,8 +26,7 @@ module.exports = (req, res) => {
   User.findOne({ where: { userId } })
     .then((data) => {
       if (!data) {
-        return res.redirect('/');
-        // ! 이게 맛냐?
+        return res.redirect('http://localhost:4000/login');
       }
       delete data.dataValues.password;
 
