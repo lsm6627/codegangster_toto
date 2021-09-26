@@ -1,10 +1,21 @@
 import React from 'react';
 
+import { useForm } from 'react-hook-form';
+
 import Footer from '../Footer';
 
 import './SingUp.css';
 
 const SingUp = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <section className="loginTodolist__container">
       <div className="loginTodolist__logo">Code Gangsters TodoList Sign Up</div>
@@ -12,7 +23,15 @@ const SingUp = () => {
       <div className="loginTodolist__inputField">
         <div className="loginTodolist__inputId">
           <i class="fas fa-user"></i>
-          <input className="userId" type="text" placeholder="ID" />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <input
+              className="userId"
+              type="text"
+              placeholder="ID"
+              name="userId"
+              {...register('userId', { pattern: /^[A-Za-z]+$/i, minLength: 6 })}
+            />
+          </form>
         </div>
         <div className="loginTodolist__inputPassword">
           <i class="fas fa-unlock-alt"></i>
@@ -30,9 +49,11 @@ const SingUp = () => {
           <i class="fas fa-envelope-open-text"></i>
           <input className="email" type="email" placeholder="E-Mail" />
         </div>
-        <div className="validation__check__complicatedPassword hide">
-          * 아이디는 영문과 숫자 6글자 이상이어야 합니다.
-        </div>
+        {errors.userId && (
+          <div className="validation__check__complicatedPassword hide">
+            * 아이디는 영문과 숫자 6글자 이상이어야 합니다.
+          </div>
+        )}
         <div className="validation__check__wrongEmail hide">
           * 올바른 형식의 이메일을 입력해 주세요.
         </div>
@@ -46,7 +67,9 @@ const SingUp = () => {
           * 비밀번호가 일치하지 않습니다.
         </div>
         <div className="loginTodolist__BtnContainer">
-          <button className="singUpBtn">Sign Up</button>
+          <button type="submit" className="singUpBtn">
+            Sign Up
+          </button>
         </div>
       </div>
       <div className="footer">

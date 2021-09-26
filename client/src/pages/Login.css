@@ -48,6 +48,7 @@
   padding-left: 10px;
   padding-right: 25px;
   max-width: 120vw;
+  margin-bottom: 15px;
 }
 
 .userId {
@@ -191,4 +192,9 @@
 
 .footer {
   margin-top: 15px;
+}
+
+.errorMessage {
+  text-align: center;
+  color: red;
 }
