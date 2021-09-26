@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import Cookies from 'universal-cookie';
+
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 import TodoList from './pages/TodoList';
 import Login from './pages/Login';
@@ -11,10 +12,7 @@ import './App.css';
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [accessToken, setAccessToken] = useState('');
-
-  const cookies = new Cookies();
-  const [cookie, setCookie] = useState(cookies.get('refreshToken'));
-
+  const [cookies, setCookie, removeCookie] = useCookies(['refreshToken']);
   const issueAccessTokens = () => {};
 
   const loginHandler = (token) => {};
@@ -23,7 +21,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Switch>
-          {!cookie ? (
+          {!isLogin ? (
             <main>
               <section className="features">
                 <Route path="/login">
