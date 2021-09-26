@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const CountClear = ({ datas, setDatas }) => {
   const handleClear = () => {
-    axios.delete('http://localhost:4000/todos');
+    axios.delete('https://localhost:4000/todos');
     setDatas([]);
   };
 
