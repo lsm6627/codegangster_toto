@@ -5,8 +5,22 @@ import { useForm } from 'react-hook-form';
 import Footer from '../Footer';
 
 import './SingUp.css';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const SingUp = () => {
+  const history = useHistory();
+  const userSingup = () => {
+    axios
+      .post('https://localhost:4000/signup', {
+        userId: 'kcd',
+        password: '1q2w',
+        email: 'kcd@home.com'
+      })
+      .then((res) => history.push('/'))
+      .catch((err) => console.log(err));
+  };
+
   const {
     register,
     handleSubmit,
@@ -67,7 +81,13 @@ const SingUp = () => {
           * 비밀번호가 일치하지 않습니다.
         </div>
         <div className="loginTodolist__BtnContainer">
-          <button type="submit" className="singUpBtn">
+          <button
+            type="submit"
+            className="singUpBtn"
+            onClick={() => {
+              userSingup();
+            }}
+          >
             Sign Up
           </button>
         </div>

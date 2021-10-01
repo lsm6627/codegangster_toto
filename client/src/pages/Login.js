@@ -5,8 +5,21 @@ import { Link } from 'react-router-dom';
 import Footer from '../Footer';
 
 import './Login.css';
+import axios from 'axios';
 
 const Login = ({ loginHandler }) => {
+  const userLogin = () => {
+    axios
+      .post(
+        'https://localhost:4000/login',
+        // { userId: 'lsm', password: 'qwer' },
+        { userId: 'kcd', password: '1q2w' },
+        { withCredentials: true }
+      )
+      .then((res) => loginHandler(res.data))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <section className="loginTodolist__container">
       <div className="loginTodolist__logo">Code Gangsters TodoList</div>
@@ -21,7 +34,13 @@ const Login = ({ loginHandler }) => {
         </div>
         {/* <Link to="/" style={{ textDecoration: 'none' }}> */}
         <div className="loginTodolist__BtnContainer">
-          <button type="submit" className="loginBtn">
+          <button
+            type="submit"
+            className="loginBtn"
+            onClick={() => {
+              userLogin();
+            }}
+          >
             Login
           </button>
         </div>

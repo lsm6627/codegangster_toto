@@ -34,6 +34,7 @@ module.exports = (req, res) => {
               .send({ data: null, message: 'not authorized' });
           }
           delete data.dataValues.password;
+          delete data.dataValues.salt;
           const accessToken = generateAccessToken(data.dataValues);
           const refreshToken = generateRefreshToken(data.dataValues);
 
