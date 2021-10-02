@@ -4,7 +4,7 @@ module.exports = {
   refreshTokenRequest: require('./users/refreshTokenRequest'),
   tokenRequest: require('./users/tokenRequest'),
   todo: require('./todo'),
-  getTodo: require('./todo/getTodo'),
+  // getTodo: require('./todo/getTodo'),
   signup: require('./users/signup'),
   logout: require('./users/logout')
 };

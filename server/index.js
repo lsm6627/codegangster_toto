@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 // app.get('/refreshtokenrequest', controllers.refreshTokenRequest);
 app.get('/tokenrequest', controllers.tokenRequest);
 
-app.post('/getTodos', controllers.getTodo.post);
+app.post('/getTodos', controllers.todo.get);
 app.post('/todos', controllers.todo.post);
 app.delete('/todos', controllers.todo.delete);
 app.put('/todos', controllers.todo.update);

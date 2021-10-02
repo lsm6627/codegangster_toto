@@ -13,9 +13,9 @@ const SingUp = () => {
   const userSingup = () => {
     axios
       .post('https://localhost:4000/signup', {
-        userId: 'kcd',
-        password: '1q2w',
-        email: 'kcd@home.com'
+        userId: '유저01',
+        password: '4321',
+        email: 'user01@home.com'
       })
       .then((res) => history.push('/'))
       .catch((err) => console.log(err));

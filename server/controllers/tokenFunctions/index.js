@@ -18,9 +18,9 @@ module.exports = {
   sendAccessToken: (res, accessToken) => {
     res.json({ data: accessToken, message: 'ok' });
   },
-  resendAccessToken: (res, accessToken, data) => {
-    res.json({ data: { accessToken, userInfo: data }, message: 'ok' });
-  },
+  // resendAccessToken: (res, accessToken, data) => {
+  //   res.json({ data: { accessToken, userInfo: data }, message: 'ok' });
+  // },
   isAuthorized: (req) => {
     const authorization = req.headers['authorization'];
     if (!authorization) {

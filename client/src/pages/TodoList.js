@@ -11,12 +11,13 @@ import axios from 'axios';
 
 const TodoList = ({ userInfo, logoutHandler }) => {
   const [datas, setDatas] = useState([]);
-  // console.log('Todo;;;', userInfo);
+  console.log('Todo;;;', userInfo);
 
   useEffect(() => {
     axios
       .post('https://localhost:4000/getTodos', { id: userInfo.id })
-      .then((res) => setDatas(res.data));
+      .then((res) => setDatas(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
   return (

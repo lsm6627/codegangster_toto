@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-// import { useCookies } from 'react-cookie';
 
 import TodoList from './pages/TodoList';
 import Login from './pages/Login';
@@ -12,13 +10,9 @@ import './App.css';
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
-  // const [accessToken, setAccessToken] = useState('');
   const [userInfo, setUserInfo] = useState({});
-  // const [cookies, setCookie, removeCookie] = useCookies(['refreshToken']);
-  // console.log('!!!!!cookies', cookies);
 
   const issueTokens = (token) => {
-    // console.log('App.js->accessToken;;;', accessToken);
     axios
       .get('https://localhost:4000/tokenrequest', {
         headers: { authorization: `Bearer ${token}` },
@@ -30,10 +24,6 @@ function App() {
       })
       .catch((err) => console.log(err));
   };
-  // 쿠키여부 체크?
-  // 모든 요청마다 토큰확인(서버에서확인)?
-  // 처음에 토큰확인부터
-  // 유즈이펙트 [] 처음 마운트
   useEffect(() => {
     issueTokens();
   }, []);
@@ -57,11 +47,7 @@ function App() {
         <Switch>
           {isLogin ? (
             <Route exact path="/">
-              <TodoList
-                // accessToken={accessToken}
-                userInfo={userInfo}
-                logoutHandler={logoutHandler}
-              />
+              <TodoList userInfo={userInfo} logoutHandler={logoutHandler} />
             </Route>
           ) : (
             <main>

@@ -1,7 +1,8 @@
 const { todos } = require('../../models');
 
 module.exports = {
-  post: async (req, res) => {
+  get: async (req, res) => {
+    console.log('getTodo;;;;;', req.body.id);
     const result = await todos
       .findAll({ where: { userId: req.body.id } })
       .catch((err) => res.json(err));
