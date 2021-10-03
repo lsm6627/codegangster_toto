@@ -10,7 +10,7 @@ const crypto = require('crypto');
 module.exports = async (req, res) => {
   const { userId, password } = req.body;
   const checkUser = await User.findOne({ where: { userId } }).catch((err) =>
-    res.json(err)
+    res.json({ message: 'not userId' })
   );
 
   if (!checkUser)

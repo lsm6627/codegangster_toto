@@ -11,7 +11,6 @@ import axios from 'axios';
 
 const TodoList = ({ userInfo, logoutHandler }) => {
   const [datas, setDatas] = useState([]);
-  console.log('Todo;;;', userInfo);
 
   useEffect(() => {
     axios
