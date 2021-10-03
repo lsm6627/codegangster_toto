@@ -12,8 +12,9 @@ const Login = ({ loginHandler }) => {
     axios
       .post(
         'https://localhost:4000/login',
-        { userId: 'lsm', password: 'qwer' },
-        // { userId: '사범기', password: '4321' },
+        // { userId: 'lsm', password: 'qwer' },
+        { userId: '사범기', password: '4321' },
+        // { userId: '유저02', password: '4321' },
         { withCredentials: true }
       )
       .then((res) => loginHandler(res.data))
